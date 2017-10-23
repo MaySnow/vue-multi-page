@@ -100,11 +100,12 @@ let curWebpackConfig = {
 }
 
 pageHtml.forEach(function (item) {
+  let commonChunk = ['manifest','vendor'];
   curWebpackConfig.plugins.push(new HtmlWebpackPlugin({
     filename: config.build.index(item.filename),
     template: item.template,
     inject: false,
-    chunks: item.chunks,
+    chunks: commonChunk.concat(item.chunks),
     minify: {
       removeComments: true,
       collapseWhitespace: true,
