@@ -34,9 +34,9 @@ Object.keys(proxyTable).forEach(function (context) {
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 
-// serve pure static assets
-const staticPath = path.posix.join(config.preview.assetsPublicPath, config.preview.assetsSubDirectory)
-app.use(staticPath, express.static('./dist'))
+
+
+app.use(express.static('./dist'))
 
 var _resolve
 var _reject

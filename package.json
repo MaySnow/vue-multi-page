@@ -9,6 +9,7 @@
     "dev": "npm run entry-path && node build/dev-server.js",
     "start": "npm run dev",
     "build": "npm run entry-path && node build/build.js",
+    "preview": "npm run build && node build/dev-preview-server.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
