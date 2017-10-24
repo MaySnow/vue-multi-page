@@ -6,7 +6,8 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const pageHtml = require('./pages')
+const pageHtml = require('./pages').entryPages
+
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -37,12 +38,7 @@ let webpackConf =  {
 }
 
 pageHtml.forEach(function (item) {
-  webpackConf.plugins.push(new HtmlWebpackPlugin({
-    filename: item.filename,
-    template: item.template,
-    inject: false,
-    chunks: item.chunks
-  }))
+  webpackConf.plugins.push(new HtmlWebpackPlugin(item))
 })
 
 

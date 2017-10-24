@@ -2,7 +2,7 @@
   <div id="app">
     <img src="../../assets/logo.png">
     <ul>
-      <li><a href="/a.html">我是A页面</a></li>
+      <li><a href="/a/a-a.html">我是/a/a-a.html页面</a></li>
       <li><a href="/b.html">我是B页面</a></li>
     </ul>
     <router-view/>

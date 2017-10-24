@@ -1,0 +1,7 @@
+{
+  "inject": false,
+  "template": "./template/default.html",
+  "title": "default title",
+  "keywords": "default Keywords",
+  "description": "default description"
+}

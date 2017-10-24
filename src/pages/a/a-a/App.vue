@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>我是多页面---A页面</h1>
-    <img src="../../assets/logo.png">
+    <img src="../../../assets/logo.png">
   </div>
 </template>
 

@@ -4,11 +4,13 @@
 
 ## 多页面配置
 
-需要在pages文件下添加多页面，并且文件夹下必须有index.js,index.js为这个多页面的单页面入口
+需要在pages文件下添加多页面，并且文件夹下必须有且仅有一个entry.js,entry.js为这个多页面的单页面入口，在统计目录下的conf.json为html-webpack-plugin的自定义options,例如：title、keywords等
 
 例如：
 
-路径```/a.html```需要在```pages```文件夹下新建文件夹```a```并在```a```文件夹下新建入口文件```index.js```
+路径```/a.html```需要在```pages```文件夹下新建文件夹```a```并在```a```文件夹下新建入口文件```entry.js```
+
+路径```/a/a-a.html```需要在```pages```文件夹下新建文件夹```a```在```a```文件夹下建```a-a```并在```a-a```文件夹下新建入口文件```entry.js```
 
 
 ## Build Setup

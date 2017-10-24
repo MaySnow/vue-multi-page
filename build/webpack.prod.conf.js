@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const pageHtml = require('./pages')
+const pageHtml = require('./pages').entryPages
 
 const env = config.build.env
 
@@ -101,10 +101,10 @@ let curWebpackConfig = {
 
 pageHtml.forEach(function (item) {
   let commonChunk = ['manifest','vendor'];
-  curWebpackConfig.plugins.push(new HtmlWebpackPlugin({
+
+  let curTemp = {
     filename: config.build.index(item.filename),
     template: item.template,
-    inject: false,
     chunks: commonChunk.concat(item.chunks),
     minify: {
       removeComments: true,
@@ -115,7 +115,9 @@ pageHtml.forEach(function (item) {
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     chunksSortMode: 'dependency'
-  }))
+  }
+
+  curWebpackConfig.plugins.push(new HtmlWebpackPlugin(merge(item,curTemp)))
 })
 
 

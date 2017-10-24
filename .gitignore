@@ -12,5 +12,3 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-/build/entry-path.json
-/build/entry-pages.json
