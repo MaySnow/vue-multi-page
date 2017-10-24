@@ -4,7 +4,9 @@
 
 ## 多页面配置
 
-需要在pages文件下添加多页面，并且文件夹下必须有且仅有一个entry.js,entry.js为这个多页面的单页面入口，在统计目录下的conf.json为html-webpack-plugin的自定义options,例如：title、keywords等
+需要在pages文件下添加多页面，并且文件夹下必须有且仅有一个entry.js,仅能有一个conf.json(如不设置则默认使用build/pages/conf.default.json)。其中entry.js为这个多页面的单页面入口，在同一目录下的conf.json为html-webpack-plugin的自定义options,例如：title、keywords等
+
+```html-webpack-plugin```的默认options在```build/pages/conf.default.json```
 
 例如：
 
