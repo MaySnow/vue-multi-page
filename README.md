@@ -22,6 +22,34 @@ npm run preview
 
 ```
 
+## css预加载配置
+
+1、sass配置
+
+``` bash
+npm install node-sass --save-dev
+
+npm install sass-loader --save-dev
+```
+
+2、less配置
+
+``` bash
+npm install less --save-dev
+
+npm install less-loader --save-dev
+```
+
+然后在对应的组件或者视图的style标签加上lang
+
+``` html
+<style lang="sass" scoped>
+    .....
+</style>
+```
+
+
+
 ## 多页面配置
 
 需要在pages文件下添加多页面，并且文件夹下必须有index.js,index.js为这个多页面的单页面入口
