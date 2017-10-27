@@ -6,9 +6,19 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import axios from 'axios'
+  export default {
+    name: 'app',
+    created () {
+      axios.get('/api/cart')
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  }
 </script>
 
 <style>

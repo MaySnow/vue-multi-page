@@ -29,11 +29,16 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 3080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api/*': {
+        target: 'https://mapi.m.jd.com/cart/cart.json',
+        changeOrigin: true
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -43,6 +48,6 @@ module.exports = {
   },
   preview: {
     env: require('./preview.env'),
-    port: process.env.PORT || 8082
+    port: process.env.PORT || 3082
   },
 }

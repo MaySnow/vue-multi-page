@@ -46,7 +46,6 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // enable hot-reload and state-preserving
 // compilation error display
 app.use(hotMiddleware)
-
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   let options = proxyTable[context]
