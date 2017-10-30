@@ -100,24 +100,22 @@ let curWebpackConfig = {
 }
 
 pageHtml.forEach(function (item) {
-  let commonChunk = ['manifest','vendor'];
+  item.filename = config.build.index(item.filename);
+  item.chunks = ['manifest','vendor'].concat(item.chunks);
 
-  let curTemp = {
-    filename: config.build.index(item.filename),
-    template: item.template,
-    chunks: commonChunk.concat(item.chunks),
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true
-      // more options:
-      // https://github.com/kangax/html-minifier#options-quick-reference
-    },
-    // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    chunksSortMode: 'dependency'
+  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+  item.chunksSortMode = 'dependency';
+
+  // more options:
+  // https://github.com/kangax/html-minifier#options-quick-reference
+  item.minify = {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeAttributeQuotes: true
   }
 
-  curWebpackConfig.plugins.push(new HtmlWebpackPlugin(merge(item,curTemp)))
+
+  curWebpackConfig.plugins.push(new HtmlWebpackPlugin(item))
 })
 
 
